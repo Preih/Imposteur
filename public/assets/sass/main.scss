@@ -1,0 +1,34 @@
+*{
+    font-family: 'DM Sans', sans-serif;
+}
+body{
+    width: 100%;
+    background-color: gray;
+}
+main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// BASE
+@import "base/mixins.scss";
+@import "base/variables.scss";
+@import "base/animations.scss";
+
+// COMPONENTS
+@import "components/avatar.scss";
+@import "components/joueur.scss";
+@import "components/switch.scss";
+
+// LAYOUT
+
+@import "layout/header.scss";
+
+// PAGE
+@import "page/home.scss";
+@import "page/game.scss";
+
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+

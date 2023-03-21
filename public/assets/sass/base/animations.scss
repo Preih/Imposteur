@@ -1,0 +1,59 @@
+@keyframes appearRightToLeft {
+    0%{
+        transform: translateX(50vw);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes appearLeftToRight {
+    0%{
+        transform: translateX(-50vw);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes appearTopToBottom {
+    0%{
+        transform: translateY(-100%) translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%) translateX(-50%);
+        opacity: 1;
+    }
+}
+
+@keyframes animPlayGame {
+    0%{
+        visibility: visible;
+        transform : translateX(-50vw) rotateY(0);
+        
+    }
+    30%{
+        transform : rotateY(0);
+        // opacity: 1;
+    }
+    100%{
+        visibility: visible;
+        transform: rotateY(360deg);
+        // opacity: 1;
+    }
+}
+@keyframes appearRegle {
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

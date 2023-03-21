@@ -1,0 +1,26 @@
+
+    .avatar{
+        img{
+            opacity: 0.5;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transition: opacity 0.5s;
+            &.active{
+                opacity: 1;
+                border: black solid 1px;
+                border-radius: 50%;
+            }
+
+            &.unavailable{
+                display: none;
+            }
+        }
+
+        &.recapAvatar{
+            img{
+                opacity: 1;
+            }
+        }
+        
+    }

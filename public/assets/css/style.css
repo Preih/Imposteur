@@ -1,0 +1,642 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: gray;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes appearRightToLeft {
+  0% {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes appearLeftToRight {
+  0% {
+    transform: translateX(-50vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes appearTopToBottom {
+  0% {
+    transform: translateY(-100%) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%) translateX(-50%);
+    opacity: 1;
+  }
+}
+@keyframes animPlayGame {
+  0% {
+    visibility: visible;
+    transform: translateX(-50vw) rotateY(0);
+  }
+  30% {
+    transform: rotateY(0);
+  }
+  100% {
+    visibility: visible;
+    transform: rotateY(360deg);
+  }
+}
+@keyframes appearRegle {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+.avatar img {
+  opacity: 0.5;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transition: opacity 0.5s;
+}
+.avatar img.active {
+  opacity: 1;
+  border: black solid 1px;
+  border-radius: 50%;
+}
+.avatar img.unavailable {
+  display: none;
+}
+.avatar.recapAvatar img {
+  opacity: 1;
+}
+
+.joueur {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+.joueur .avatar {
+  margin: auto;
+}
+.joueur .pseudoJoueur {
+  width: 150px;
+  height: 30px;
+  margin-right: 10px;
+}
+.joueur .supprJoueur {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  height: 30px;
+}
+.joueur .nomJoueur {
+  display: flex;
+  margin: auto;
+}
+.joueur .nomJoueur img {
+  width: 30px;
+  height: 30px;
+}
+.joueur.elimine::before, .joueur.elimine::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  top: 1rem;
+  background-color: red;
+}
+.joueur.elimine::before {
+  left: 0;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+}
+.joueur.elimine::after {
+  transform-origin: top right;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+/* The switch - the box around the slider */
+.container-switch {
+  margin: 0.5rem 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #920000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #920000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 5rem 5rem 5rem;
+}
+header a {
+  display: flex;
+  align-items: center;
+}
+header a img {
+  width: 200px;
+}
+
+.container-home {
+  overflow: hidden;
+  background: rgb(205, 205, 205);
+  background: radial-gradient(circle, rgb(205, 205, 205) 21%, rgb(78, 78, 78) 90%, rgb(60, 60, 60) 100%);
+  min-height: 100vh;
+}
+.container-home .line-index {
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  overflow: hidden;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 5%;
+  max-width: 50px;
+  background-image: url("../images/chaine.png");
+  padding: 0;
+  animation: appearTopToBottom 1s;
+}
+.container-home .menu-rules, .container-home .menu-title, .container-home .menu-game {
+  position: relative;
+  background-image: url("../images/panneau.png");
+  background-size: cover;
+  color: #1d1d1d;
+  transition: filter 0.3s;
+  cursor: pointer;
+}
+.container-home .menu-rules a, .container-home .menu-title a, .container-home .menu-game a {
+  color: #1d1d1d;
+  text-decoration: none;
+}
+.container-home .menu-rules:hover, .container-home .menu-title:hover, .container-home .menu-game:hover {
+  filter: brightness(70%);
+}
+.container-home .menu-title {
+  width: 100%;
+  max-width: 400px;
+  margin: 150px auto;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  animation: appearLeftToRight 0.5s forwards;
+  animation-delay: 1s;
+}
+.container-home .menu-title h1 {
+  padding: 0.5rem;
+}
+.container-home .menu-rules {
+  width: 100%;
+  max-width: 150px;
+  margin: 150px auto 0 auto;
+  text-align: center;
+  z-index: 10;
+  padding: 1rem;
+  opacity: 0;
+  animation: appearRightToLeft 0.5s forwards;
+  animation-delay: 1.5s;
+}
+.container-home .menu-game {
+  width: 100%;
+  max-width: 750px;
+  margin: 100px auto;
+  text-align: center;
+  z-index: 10;
+  padding: 2rem 1rem;
+  font-size: 2rem;
+  height: 2rem;
+  position: relative;
+  visibility: hidden;
+  animation: animPlayGame 3s forwards;
+  animation-delay: 2s;
+  transform-style: preserve-3d;
+  transition: transform 1s, background-color 1s, filter 0.3s;
+}
+.container-home .menu-game .front, .container-home .menu-game .back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 2s ease-in-out;
+}
+.container-home .menu-game .front a, .container-home .menu-game .back a {
+  text-decoration: none;
+  color: #1d1d1d;
+}
+.container-home .menu-game .back {
+  transform: rotateY(180deg);
+}
+.container-home .arrow-return {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 30%;
+  max-width: 100px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 10;
+  animation: appearLeftToRight 1s forwards;
+  animation-delay: 0.5s;
+}
+.container-home .container-rules {
+  margin: auto;
+  position: relative;
+  top: 0%;
+  border: black solid 1px;
+  background: url("../images/pancarte.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  color: #f1f1f1;
+  width: 100%;
+  height: 80vh;
+  max-width: 600px;
+  text-align: center;
+  animation: appearRegle 1s;
+}
+@media screen and (max-width: 576px) {
+  .container-home .container-rules {
+    background-size: cover;
+  }
+}
+.container-home .container-rules .recap-rules {
+  position: absolute;
+  bottom: 5%;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 80%;
+  max-width: 420px;
+  left: 50%;
+  height: 70%;
+  overflow: scroll;
+  transform: translateX(-50%);
+  font-size: 1rem;
+}
+.container-home .container-rules .recap-rules h1 {
+  margin-bottom: 2rem;
+  text-decoration: underline;
+}
+.container-home .container-rules .recap-rules p {
+  font-family: "Indie Flower", cursive;
+  margin-top: 0.5rem;
+}
+
+.container-game {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(205, 205, 205);
+  background: radial-gradient(circle, rgb(205, 205, 205) 21%, rgb(78, 78, 78) 90%, rgb(60, 60, 60) 100%);
+}
+.container-game .game {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #f1f1f1;
+  border: black solid 1px;
+  border-radius: 5px;
+}
+.container-game .game h2 {
+  width: 50%;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.container-game .game .input-saisie {
+  margin: 50px auto;
+  display: block;
+  width: 50%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  max-width: 200px;
+  border: solid 1px;
+  transition: width 0.5s, max-width 0.5s, border-radius 0.5s;
+}
+.container-game .game .input-saisie:focus {
+  border: red solid 1px;
+  width: 50%;
+  max-width: 250px;
+  border-radius: 20px;
+}
+.container-game .game .wrapper-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container-game .game .wrapper-avatars img {
+  margin: 5px;
+}
+.container-game .game .addJoueur {
+  display: flex;
+  margin: 10px auto 0 auto;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 209, 148, 0.4941176471);
+  border: solid 1px black;
+  cursor: pointer;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s;
+}
+.container-game .game .addJoueur:hover {
+  background-color: rgba(250, 190, 113, 0.4941176471);
+}
+.container-game .game .btnAddJoueur {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  padding: 4rem;
+}
+.container-game .game .btnAddJoueur img {
+  width: 50px;
+  height: 50px;
+}
+.container-game .game .erreur {
+  margin: 10px auto 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(179, 33, 33);
+}
+.container-game .game .startGame {
+  margin: 40px auto 20px auto;
+  width: 50%;
+  max-width: 200px;
+  text-align: center;
+  background-color: rgb(114, 62, 19);
+  color: #f1f1f1;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: black solid 1px;
+  border-radius: 20px 0 20px 0;
+  transition: max-width 0.5s, background-color 0.5s;
+}
+.container-game .game .startGame:hover {
+  max-width: 250px;
+  background-color: rgb(196, 115, 49);
+  color: #1d1d1d;
+}
+.container-game .game .wrapper-joueurs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container-game .game .wrapper-joueurs .voteElimine {
+  border: red solid 2px;
+  border-radius: 20px;
+}
+.container-game .game .optionJeu {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+.container-game .game .optionJeu input[type=text] {
+  margin: 0.5rem 0;
+  width: 40px;
+  padding: 0.5rem;
+  text-align: center;
+  transition: width 0.5s;
+  outline: none;
+}
+.container-game .game .optionJeu input[type=text]:focus {
+  width: 80px;
+  border: #7e4211 solid 1px;
+  background-color: rgba(29, 29, 29, 0.6862745098);
+  color: #f1f1f1;
+}
+.container-game .game .row-recap-joueurs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+.container-game .game .row-recap-joueurs .inputMrWhite {
+  transition: all 0.5s;
+  opacity: 0;
+  height: 0;
+}
+.container-game .game .row-recap-joueurs .inputMrWhite input[type=text] {
+  margin: 0.5rem 0;
+  width: 40px;
+  padding: 0.5rem;
+  text-align: center;
+  transition: width 0.5s;
+  outline: none;
+}
+.container-game .game .row-recap-joueurs .inputMrWhite input[type=text]:focus {
+  width: 80px;
+  border: #7e4211 solid 1px;
+  background-color: rgba(29, 29, 29, 0.6862745098);
+  color: #f1f1f1;
+}
+.container-game .game .btnRecap {
+  margin: 1rem auto 2rem auto;
+  width: 20%;
+  text-align: center;
+  background-color: #1d1d1d;
+  color: #f1f1f1;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: background-color 0.5s, transform 0.5s;
+}
+.container-game .game .btnRecap:hover {
+  background-color: #5c5c5c;
+  transform: scale(1.2);
+}
+.container-game .game .container-tour {
+  min-height: 300px;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+.container-game .game .container-tour .contenu-tour {
+  margin-top: 0.5rem;
+}
+.container-game .game .container-tour .titre-tour {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.container-game .game .container-tour .important {
+  font-weight: bold;
+  color: rgb(128, 0, 0);
+  text-decoration: underline;
+}
+.container-game .game .container-tour .next {
+  margin-top: 2rem;
+  border: black solid 1px;
+  padding: 0.5rem 2rem;
+  background-color: #1d1d1d;
+  color: #f1f1f1;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+.container-game .game .container-tour .next:hover {
+  background-color: #525252;
+}
+.container-game .game .container-tour .btn-voter {
+  background-color: rgb(122, 0, 0);
+  color: #f1f1f1;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.container-game .game .container-end .resultatGame {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.container-game .game .container-end .bilan-joueurs h3 {
+  text-align: center;
+}
+.container-game .game .container-end .newGame {
+  width: 50%;
+  background-color: #1d1d1d;
+  color: #f1f1f1;
+  margin: auto;
+  max-width: 200px;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.container-game .game .container-end .newGame:hover {
+  background-color: #505050;
+}
+
+.popUpAddJoueur {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.popUpAddJoueur .avatar .active {
+  border: #1b29af solid 1px;
+}
+.popUpAddJoueur input[type=text] {
+  width: 20%;
+  max-width: 200px;
+  padding: 0.3rem;
+  transition: width 0.5s, max-width 0.5s;
+  outline: none;
+  color: #1d1d1d;
+  background-color: #adadad;
+  font-size: 1.2rem;
+  text-align: center;
+  border: none;
+}
+.popUpAddJoueur input[type=text]:focus {
+  width: 30%;
+  max-width: 300px;
+  border: #1b29af solid 2px;
+  background-color: black;
+  color: #1b29af;
+}
+.popUpAddJoueur .wrapper-avatars {
+  margin: 2rem;
+}
+.popUpAddJoueur .addJoueurPopUp {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.4rem;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

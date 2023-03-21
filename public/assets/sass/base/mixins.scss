@@ -1,0 +1,14 @@
+@mixin bouton {
+    padding: 1rem 0.5rem;
+    background-color: $couleurPrimaire1;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    &:hover{
+        background-color: $couleurPrimaire2;
+        color: black;
+    }
+}

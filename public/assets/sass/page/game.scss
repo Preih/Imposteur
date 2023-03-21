@@ -1,0 +1,310 @@
+.container-game{
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(205,205,205);
+    background: radial-gradient(circle, rgba(205,205,205,1) 21%, rgba(78,78,78,1) 90%, rgba(60,60,60,1) 100%);
+
+    .game{
+
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        background-color: #f1f1f1;
+        border : black solid 1px;
+        border-radius: 5px;
+
+        h2{
+            width: 50%;
+            margin: 2rem auto ;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .input-saisie{
+            margin: 50px auto;
+            display: block;
+            width: 50%;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: none;
+            max-width: 200px;
+            border: solid 1px;
+            transition: width 0.5s,max-width 0.5s, border-radius 0.5s;
+            &:focus{
+                border: red solid 1px;
+                width: 50%;
+                max-width: 250px;
+                border-radius: 20px;
+            }
+        }
+
+        .wrapper-avatars{
+    
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            img{
+                margin: 5px;
+            }
+        }
+
+        .addJoueur{
+            display: flex;
+            margin: 10px auto 0 auto;
+            padding : 0.5rem 1rem;
+            background-color: #ffd1947e   ;
+            border: solid 1px black;
+            cursor: pointer;
+            outline: none;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.5s;
+            &:hover{
+                background-color: #fabe717e   ;
+            }
+        }
+        .btnAddJoueur{
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+            padding: 4rem;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .erreur{
+            margin: 10px auto 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgb(179, 33, 33);
+        }
+        .startGame{
+            margin: 40px auto 20px auto;
+            width: 50%;
+            max-width: 200px;
+            text-align: center;
+            background-color: rgb(114, 62, 19);
+            color: #f1f1f1;
+            cursor: pointer;
+            padding: 0.5rem;
+            border : black solid 1px;
+            border-radius: 20px 0 20px 0;
+            transition: max-width 0.5s,background-color 0.5s;
+            &:hover{
+                max-width: 250px;
+                background-color: rgb(196, 115, 49);
+                color: #1d1d1d;
+            }
+        }
+        
+        .wrapper-joueurs{
+        
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .voteElimine{
+                border : red solid 2px;
+                border-radius: 20px;
+            }
+            
+
+        }
+
+        .optionJeu{
+            margin: auto;
+            width: 50%;
+            text-align: center;
+
+            input[type='text']
+            {
+                margin: 0.5rem 0;
+                width: 40px;
+                padding: 0.5rem;
+                text-align: center;
+                transition: width 0.5s;
+                outline: none;
+                &:focus{
+                    width: 80px;
+                    border: #7e4211 solid 1px;
+                    background-color: #1d1d1daf;
+                    color: #f1f1f1;
+                }
+            }
+        }
+        .row-recap-joueurs{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: auto;
+            text-align: center;
+            .inputMrWhite{
+                transition: all 0.5s;
+                opacity: 0;
+                height: 0;
+                input[type='text']
+                {
+                    margin: 0.5rem 0;
+                    width: 40px;
+                    padding: 0.5rem;
+                    text-align: center;
+                    transition: width 0.5s;
+                    outline: none;
+                    &:focus{
+                        width: 80px;
+                        border: #7e4211 solid 1px;
+                        background-color: #1d1d1daf;
+                        color: #f1f1f1;
+                    }
+                }
+                
+            }
+        }
+        .btnRecap{
+            margin: 1rem auto 2rem auto;
+            width: 20%;
+            text-align: center;
+            background-color: #1d1d1d;
+            color: #f1f1f1;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: background-color 0.5s, transform 0.5s;
+            &:hover{
+                background-color: #5c5c5c;
+                transform: scale(1.2);
+            }
+        }
+    
+        .container-tour{
+            min-height: 300px;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 1.5rem;
+            .contenu-tour{
+                margin-top: 0.5rem;
+            }
+            .titre-tour{
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .important{
+                font-weight: bold;
+                color: rgb(128, 0, 0);
+                text-decoration: underline;
+            }
+            .next{
+                margin-top: 2rem;
+                border: black solid 1px;
+                padding: 0.5rem 2rem;
+                background-color: #1d1d1d;
+                color: #f1f1f1;
+                transition: background-color 0.5s;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #525252;
+                }
+            }
+
+            .btn-voter{
+                background-color: rgb(122, 0, 0);
+                color: #f1f1f1;
+                padding: 0.5rem 2rem;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+        }
+
+        .container-end{
+
+            .resultatGame{
+                margin-top: 1rem;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .bilan-joueurs{
+ 
+                h3{
+                    text-align: center;
+                }
+            }
+            .newGame{
+                width: 50%;
+                background-color: #1d1d1d;
+                color: #f1f1f1;
+                margin: auto;
+                max-width: 200px;
+                font-size: 1.5rem;
+                text-align: center;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                cursor: pointer;
+                transition: background-color 0.5s;
+                &:hover{
+                    background-color: #505050;
+                }
+            }
+        }
+
+    }
+
+}
+
+.popUpAddJoueur{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    .avatar{
+        .active{
+            border: #1b29af solid 1px ;
+        }
+    }
+    input[type='text']{
+        width: 20%;
+        max-width: 200px;
+        padding: 0.3rem;
+        transition: width 0.5s, max-width 0.5s;
+        outline: none;
+        color: #1d1d1d;
+        background-color: #adadad;
+        font-size: 1.2rem;
+        text-align: center;
+        border: none;
+        &:focus{
+            width: 30%;
+            max-width: 300px;
+            border: #1b29af solid 2px;
+            background-color: black;
+            color: #1b29af;
+        }
+    }
+    .wrapper-avatars{
+        margin: 2rem;
+    }
+
+    .addJoueurPopUp{
+        width: 100%;
+        max-width: 200px;
+        padding: 0.4rem;
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+}
