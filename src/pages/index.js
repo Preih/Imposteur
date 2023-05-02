@@ -13,12 +13,11 @@ class App {
                                 <h1>Règle du jeu :</h1>
                                 <p>Au début de chaque partie, un mot est attribué à chaque joueur parmis deux mots.</p>
                                 <p>Selon le mot attribué, le joueur peut être soit innocent, soit imposteur !</p>
-                                <p>Lors de chaque tour durant la partie, chacun des joueurs devra dire un mot se rapprochant du sien (sans dire le sien). </p>
+                                <p>Lors de chaque tour durant la partie, chaque joueur devra dire un mot se rapprochant du sien. </p>
                                 <p>Après chaque tour, un vote se fera pour éliminer une personne.</p>
                                 <p>Lors de ce vote, les imposteurs ne doivent pas se faire démasquer, et les innocents doivent tenter de les éliminer ...
-                                <p>Chaque joueur ne connait que son mot et pas son rôle, ne soyez pas trop précis dans les mots que vous choisissez, au risque que cela se retourne contre vous ... </p>
-                                <p>Pour rajouter un peu de piments au jeu, vous pouvez choisir de jouer avec Mr White également. </p>
-                                <p>Son rôle est comme celui de l'imposteur, ne pas se faire démasquer, au détail près que l'imposteur n'a PAS DE MOT attribué lors du début de partie. </p>
+                                <p>Pour rajouter un peu de piments au jeu, vous pouvez choisir de jouer avec le rôle détective également. </p>
+                                <p>Son rôle est comme celui de l'imposteur, ne pas se faire démasquer, au détail près que le détective n'a PAS DE MOT attribué lors du début de partie. </p>
                             </div>
                         </div>`
         
@@ -43,13 +42,7 @@ class App {
                             <div class="rules">Règles du jeu</div>
                         </div>
                         <div class="menu-game menu">
-                            <div class="front">
                                 <a href="game.html">Jouer !</a>
-                            </div>
-                            <div class="back">
-
-                            </div>
-                            
                         </div>`;
 
 

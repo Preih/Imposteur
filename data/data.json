@@ -110,5 +110,91 @@
 			"id": 3,
 			"mots":["fromage","saucisson"]
 		}
+		,
+		{
+			"id": 4,
+			"mots":["ordinateur","console"]
+		}
+		,
+		{
+			"id": 5,
+			"mots":["montagne","plage"]
+		}
+		,
+		{
+			"id": 6,
+			"mots":["belge","français"]
+		}
+		,
+		{
+			"id": 7,
+			"mots":["énigme","puzzle"]
+		}
+		,
+		{
+			"id": 8,
+			"mots":["guitare","piano"]
+		}
+		,
+		{
+			"id": 9,
+			"mots":["le seigneur des anneaux","le Hobbit"]
+		}
+		,
+		{
+			"id": 10,
+			"mots":["anniversaire","noël"]
+		}
+		,
+		{
+			"id": 11,
+			"mots":["Mario","Kart"]
+		}
+		,
+		{
+			"id": 12,
+			"mots":["tir (sport)","arc"]
+		}
+		,
+		{
+			"id": 13,
+			"mots":["chamallow","guimauve"]
+		}
+		,
+		{
+			"id": 14,
+			"mots":["Plastique","Recyclage"]
+		}
+		,
+		{
+			"id": 15,
+			"mots":["Paris","Marseille"]
+		}
+		,
+		{
+			"id": 16,
+			"mots":["Charbon","Mine (crayon)"]
+		}
+		,
+		{
+			"id": 17,
+			"mots":["Chemin","Autoroute"]
+		}
+		,
+		{
+			"id": 18,
+			"mots":["Intelligence Artificielle","Portable (smartphone)"]
+		}
+		,
+		{
+			"id": 19,
+			"mots":["Frontière","Barricade"]
+		}
+		,
+		{
+			"id": 20,
+			"mots":["Pipe","Cigare"]
+		}
+
 	]
 }

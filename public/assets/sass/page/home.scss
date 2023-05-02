@@ -10,7 +10,7 @@
         overflow: hidden;
         transform: translateX(-50%);
         height: 100%;
-        width: 5%;
+        width: 50px;
         max-width: 50px;
         background-image: url("../images/chaine.png");
         padding: 0;
@@ -21,7 +21,9 @@
         position: relative;
         background-image: url("../images/panneau.png");
         background-size: cover;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #1d1d1d;
         transition: filter 0.3s;
         a{
@@ -71,12 +73,10 @@
         font-size: 2rem;
         height: 2rem;
         position: relative;
-        visibility: hidden;
-        animation: animPlayGame 3s forwards;
-        animation-delay: 2s;
-        transform-style: preserve-3d;
+        opacity: 0;
         transition: transform 1s, background-color 1s, filter 0.3s;
-
+        animation: appearLeftToRight 0.5s forwards;
+        animation-delay: 2s;
 
         .front,.back{
             position: absolute;
@@ -138,17 +138,31 @@
 
             position: absolute;
             bottom: 5%;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.8);
             width: 80%;
             max-width: 420px;
             left: 50%;
             height: 70%;
-            overflow: scroll;
+            overflow-y: scroll;
             transform: translateX(-50%);
+            font-size: 1.2rem;
 
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1; 
+            }
 
+            ::-webkit-scrollbar-thumb {
+                background: #888; 
+            }
 
-            font-size: 1rem;
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555; 
+            }
+
             h1{
                 margin-bottom: 2rem;
                 text-decoration: underline;

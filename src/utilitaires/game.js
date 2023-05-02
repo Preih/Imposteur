@@ -89,6 +89,10 @@ class Game{
                     //     break;
                 }
                 affichageRole = `<div class=row-role>Vous êtes : <span class=important>${libelleRole}</span></div>`;
+                if(libelleRole == '')
+                {
+                    affichageRole = '';
+                }
             }
             let detailsRole = `Ton mot est : <span class=important>${this.tabJoueurs[currentJoueur].mot}</span>`;
             if(this.tabJoueurs[currentJoueur].role == 2)
@@ -277,7 +281,7 @@ class Game{
                     role = "imposteur";
                 }
                 else if(this.tabJoueurs[dataJoueurElimine].role == 2){
-                    role = "Mr White";
+                    role = "détective";
                 }
                 let affichage = `<div class=container-tour>
                                     <div class=contenu-tour>Vous avez décidé d'éliminer <span class=important>${this.tabJoueurs[dataJoueurElimine].pseudo}</span>.</div>
@@ -327,11 +331,11 @@ class Game{
         {
             if(survivantMrWhite)
             {
-                affichage += `<div class=resultatGame>Mr White n'a pas été démasqué</div>`;
+                affichage += `<div class=resultatGame>Le détective n'a pas été démasqué</div>`;
             }
             else
             {
-                affichage += `<div class=resultatGame>Mr White a été démasqué</div>`;
+                affichage += `<div class=resultatGame>Le détective a été démasqué</div>`;
             }
         }
         let motImposteur ;
@@ -456,7 +460,7 @@ class Game{
         console.log("cptNonElimines",cptNonElimine);
         console.log("survivantImposteur",survivantImposteur);
         console.log("survivantInnocent",survivantInnocent);
-        if(cptNonElimine == 1)
+        if(cptNonElimine == 2)
         {
             finGame = true;
         }

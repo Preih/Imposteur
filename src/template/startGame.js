@@ -129,13 +129,13 @@ class startGame{
         affichage += `<div class=btnAddJoueur><img src=../public/assets/images/btn-plus.png></div></div>
                     <h2>Paramètres :</h2>
                     <div class=optionJeu>
-                    <h3>Nombre d'imposteur(s)</h3>
-                    <input class=saisieImposteur type=text value=${this.nbImposteurConseille}>
-                    <h3>Nombre d'innocent(s)</h3>
-                    <input class=saisieInnocent type=text value=${this.nbInnocentConseille}>
+                        <h3>Nombre d'imposteur(s)</h3>
+                        <input class=saisieImposteur type=number>
+                        <h3>Nombre d'innocent(s)</h3>
+                        <input class=saisieInnocent type=number>
                     </div>
                     <div class=row-recap-joueurs>
-                        <h3>Mr White</h3>
+                        <h3>Détective</h3>
                         <div class=container-switch>
                             <label class="switch">
                                 <input class="checkbox" type="checkbox">
@@ -168,10 +168,10 @@ class startGame{
             {
                 wrapperMrWhite.style.height = '80px';
                 wrapperMrWhite.style.opacity = '1';
-                let affichage = `<h3>Nombre de Mr White</h3>
-                                <input class=saisieMrWhite type=text value=1 >`;
+                let affichage = `<h3>Nombre de détective(s)</h3>
+                                <input class=saisieMrWhite type=number value=1>`;
                 wrapperMrWhite.innerHTML += affichage;
-                document.querySelector(".saisieImposteur").value = this.nbImposteurConseille-1;
+                //document.querySelector(".saisieImposteur").value = this.nbImposteurConseille-1;
                 
                 document.querySelector(".saisieMrWhite").addEventListener("focusout",(e)=>{
                     console.log("focusOutMrWhite");
@@ -193,18 +193,18 @@ class startGame{
                         document.querySelector(".inputMrWhite").style.height = "0px";
                         let nbImposteur = Math.trunc(cptJoueurs/2);
 
-                        document.querySelector(".saisieImposteur").value = nbImposteur;
-                        document.querySelector(".saisieInnocent").value = cptJoueurs-nbImposteur;
+                        //document.querySelector(".saisieImposteur").value = nbImposteur;
+                        //document.querySelector(".saisieInnocent").value = cptJoueurs-nbImposteur;
                         return;
                     }
-                    let nbImposteur = document.querySelector(".saisieImposteur").value;
-                    let nbInnocent = document.querySelector(".saisieInnocent").value;
+                    //let nbImposteur = document.querySelector(".saisieImposteur").value;
+                    //let nbInnocent = document.querySelector(".saisieInnocent").value;
                     if(nbMrWhite>cptJoueurs-2) // Au moins 1 imposteur et 1 innocent
                     {
                         e.target.value = cptJoueurs-2;
-                        document.querySelector(".saisieImposteur").value = 1;
-                        document.querySelector(".saisieInnocent").value = 1;
-                        console.log("AAAAAAAAA");
+                        //document.querySelector(".saisieImposteur").value = 1;
+                        //document.querySelector(".saisieInnocent").value = 1;
+                        //console.log("AAAAAAAAA");
                         return;
                     }
                     else // nbMrWhite < tabJoueurs-2
@@ -216,19 +216,19 @@ class startGame{
                             cptImposteur = 1;
                         }
                         let cptInnocent = cptJoueurs - cptImposteur - cptMrWhite;
-                        document.querySelector(".saisieMrWhite").value = cptMrWhite;
+                        //document.querySelector(".saisieMrWhite").value = cptMrWhite;
                         if(cptMrWhite>cptImposteur)
                         {
-                            document.querySelector(".saisieImposteur").value = 1;
-                            document.querySelector(".saisieInnocent").value = cptJoueurs - cptMrWhite - 1;
-                            console.log("BBBBBBBBBB");
+                            //document.querySelector(".saisieImposteur").value = 1;
+                            //document.querySelector(".saisieInnocent").value = cptJoueurs - cptMrWhite - 1;
+                            //console.log("BBBBBBBBBB");
                         }
                         else{ // cptMrWhite<=cptImposteur 
-                            document.querySelector(".saisieImposteur").value = cptImposteur;
-                            document.querySelector(".saisieInnocent").value = cptInnocent;
-                            console.log("cptImposteur",cptImposteur);
-                            console.log("cptInnocent",cptInnocent);
-                            console.log("CCCCCCCCCCCC");
+                            //document.querySelector(".saisieImposteur").value = cptImposteur;
+                            //document.querySelector(".saisieInnocent").value = cptInnocent;
+                            //console.log("cptImposteur",cptImposteur);
+                            //console.log("cptInnocent",cptInnocent);
+                            //console.log("CCCCCCCCCCCC");
                         }
                     }
                 })
@@ -236,8 +236,8 @@ class startGame{
 
                 
             }
-            document.querySelector(".saisieInnocent").value = this.nbInnocentConseille;
-            document.querySelector(".saisieImposteur").value = this.nbImposteurConseille;
+            //document.querySelector(".saisieInnocent").value = this.nbInnocentConseille;
+            //document.querySelector(".saisieImposteur").value = this.nbImposteurConseille;
             wrapperMrWhite.style.height = '0px';
             wrapperMrWhite.style.opacity = '0';
             wrapperMrWhite.innerHTML = "";
@@ -288,8 +288,8 @@ class startGame{
                     }
                 }
                 this.nbImposteurConseille = Math.trunc(nbJoueurs/2);
-                document.querySelector(".saisieImposteur").value = this.nbImposteurConseille ;
-                document.querySelector(".saisieInnocent").value = nbJoueurs - this.nbImposteurConseille;
+                //document.querySelector(".saisieImposteur").value = this.nbImposteurConseille ;
+                //document.querySelector(".saisieInnocent").value = nbJoueurs - this.nbImposteurConseille;
                 
 
             })
@@ -313,10 +313,10 @@ class startGame{
             if(e.target.value == "" || e.target.value >= cptJoueurs || e.target.value == "0")
             {
                 // e.target.value = nbImposteurConseille;
-                document.querySelector(".saisieInnocent").value = this.nbInnocentConseille;
+                // document.querySelector(".saisieInnocent").value = this.nbInnocentConseille;
             } 
             else{
-                document.querySelector(".saisieInnocent").value = cptJoueurs- parseInt(e.target.value,10);
+                // document.querySelector(".saisieInnocent").value = cptJoueurs- parseInt(e.target.value,10);
             }
         })
 
@@ -333,18 +333,18 @@ class startGame{
             if(e.target.value == "" || e.target.value >= cptJoueurs || e.target.value == "0")
             {
                 // e.target.value = nbInnocentConseille;
-                document.querySelector(".saisieImposteur").value = this.nbImposteurConseille;
+                //document.querySelector(".saisieImposteur").value = this.nbImposteurConseille;
             }
             else{
-                document.querySelector(".saisieImposteur").value = cptJoueurs- parseInt(e.target.value,10);
+                //document.querySelector(".saisieImposteur").value = cptJoueurs- parseInt(e.target.value,10);
             }
         })
 
 
         document.querySelector(".btnRecap").addEventListener("click",(e)=>{
             // console.log("DEBUT DE PARTIE");
-            let nbImposteur = document.querySelector(".saisieImposteur").value;
-            let nbInnocent = document.querySelector(".saisieInnocent").value;
+            //let nbImposteur = document.querySelector(".saisieImposteur").value;
+            //let nbInnocent = document.querySelector(".saisieInnocent").value;
             let tabJoueursDelete = this.tabJoueurs;
             this.tabJoueurs = [];
             for(const joueur of tabJoueursDelete)
@@ -364,12 +364,35 @@ class startGame{
                 return;
             }
             let nbMrWhite = 0;
+            let nbInnocent = parseInt(document.querySelector(".saisieInnocent").value,10);
+            let nbImposteur = parseInt(document.querySelector(".saisieImposteur").value,10);
             if(this.switch)
             {
-                nbMrWhite = document.querySelector(".saisieMrWhite").value;
+                nbMrWhite = parseInt(document.querySelector(".saisieMrWhite").value,10);
             }
-            let boolRole = document.querySelector(".switch-role").checked;
-            new Game(this.tabJoueurs,nbImposteur,nbInnocent,nbMrWhite,boolRole);
+            let nbJoueursRole = nbImposteur + nbInnocent + nbMrWhite;
+            console.log("nbJoueursRole",nbJoueursRole);
+            if(this.tabJoueurs.length ==  nbJoueursRole && nbInnocent>0 && nbImposteur>0){
+                let boolRole = document.querySelector(".switch-role").checked;
+                new Game(this.tabJoueurs,nbImposteur,nbInnocent,nbMrWhite,boolRole);
+            }
+            else{
+                document.querySelector(".erreur").innerHTML = ""
+
+                if(this.tabJoueurs.length !=  nbJoueursRole)
+                {
+                    document.querySelector(".erreur").innerHTML = "<div>Le nombre de joueurs ne coïncide pas, veuillez vérifier les paramètres.</div>"
+                }
+                if(nbInnocent<1)
+                {
+                    document.querySelector(".erreur").innerHTML += "<div>Vous devez avoir au minimum 1 innocent.</div>"
+                }
+                if(nbImposteur<1)
+                {
+                    document.querySelector(".erreur").innerHTML += "<div>Vous devez avoir au minimum 1 imposteur.</div>"
+                }
+            }
+
         })
     }
 
@@ -401,7 +424,7 @@ class startGame{
                                     </div>`;
         }
         let domAddJoueur = `<div class=popUpAddJoueur>
-
+            <div class=closePopUpAddJoueur>X</div>
             <input type=text class=saisieAddJoueur >
             <div class=wrapper-avatars>
                 ${listeAvatarsDispo}
@@ -410,6 +433,11 @@ class startGame{
             <input type=submit class=addJoueurPopUp value=Ajouter>
         </div>`;
         this.wrapperGame.innerHTML += domAddJoueur;
+        document.querySelector(".closePopUpAddJoueur").addEventListener("click",(e)=>{
+            document.querySelector(".popUpAddJoueur").remove();
+            this.recapJoueurs();
+        })
+
         document.querySelector(".saisieAddJoueur").value = "";
         document.querySelectorAll(".available").forEach(avatar=>{
             avatar.addEventListener("click",(e)=>{
@@ -452,8 +480,8 @@ class startGame{
                     }
                 }
                 let nbImposteur = Math.trunc(cptJoueurs/2);
-                document.querySelector(".saisieImposteur").value = nbImposteur;
-                document.querySelector(".saisieInnocent").value = cptJoueurs - nbImposteur;
+                //document.querySelector(".saisieImposteur").value = nbImposteur;
+                //document.querySelector(".saisieInnocent").value = cptJoueurs - nbImposteur;
                 this.recapJoueurs();
             }
         })
