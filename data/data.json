@@ -194,7 +194,88 @@
 		{
 			"id": 20,
 			"mots":["Pipe","Cigare"]
+		},
+		{
+			"id": 21,
+			"mots":["Anesthésie","Chirurgie"]
+		}
+		,
+		{
+			"id": 23,
+			"mots":["Livre","Journal"]
+		}
+		,
+		{
+			"id": 24,
+			"mots":["Jardin","Barbecue"]
+		},
+		{
+			"id": 25,
+			"mots":["Ile","Survie"]
+		},
+		{
+			"id": 26,
+			"mots":["Ski","Luge"]
+		},
+		{
+			"id": 27,
+			"mots":["Rond-point","Carrefour"]
+		},
+		{
+			"id": 28,
+			"mots":["Inviter","Accueillir"]
+		},
+		{
+			"id": 29,
+			"mots":["Mongolfière","Ballon de baudruche"]
+		},
+		{
+			"id": 30,
+			"mots":["Nous","Vous"]
+		},
+		{
+			"id": 31,
+			"mots":["Souffle","Vent"]
+		},
+		{
+			"id": 32,
+			"mots":["Souvenir","Rêve"]
+		}
+		,
+		{
+			"id": 33,
+			"mots":["Intempérie","Innondation"]
+		},
+		{
+			"id": 34,
+			"mots":["Vélo","Train"]
+		},
+		{
+			"id": 35,
+			"mots":["Paint au chocolat","Chocolatine"]
+		},
+		{
+			"id": 36,
+			"mots":["Mobilité","Stabilité"]
+		},
+		{
+			"id": 37,
+			"mots":["Entreprise","Auto-entrepreneur"]
+		}
+		,
+		{
+			"id": 38,
+			"mots":["Lait","Brebis"]
+		},
+		{
+			"id": 39,
+			"mots":["Apéro","Dîner"]
+		},
+		{
+			"id": 40,
+			"mots":["Lune","Etoile"]
 		}
 
+		
 	]
 }
